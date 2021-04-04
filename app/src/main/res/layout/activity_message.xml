@@ -9,6 +9,7 @@
     tools:context=".MessageActivity">
     
     <RelativeLayout
+        android:id="@+id/hat"
         android:layout_width="match_parent"
         android:layout_margin="10dp"
         android:background="@drawable/shadow_test"
@@ -43,6 +44,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="thebordev"
@@ -63,14 +65,23 @@
 
     </RelativeLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/message"
+        android:layout_below="@+id/hat"/>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:id="@+id/message"
         android:layout_margin="10dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="8dp">
 
         <EditText
+            android:id="@+id/textMessage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginRight="16dp"
@@ -83,15 +94,15 @@
             android:paddingLeft="20dp"
             android:textColorHint="#646464"/>
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/photoBtn"
-            android:layout_width="40dp"
+        <ImageView
+            android:id="@+id/sendBtn"
+            android:layout_width="30dp"
             android:src="@drawable/ic_baseline_send_24"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:layout_marginRight="10dp"
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
-            app:tint="#646464" />
+            app:tint="@color/blue" />
     </RelativeLayout>
 
 </RelativeLayout>

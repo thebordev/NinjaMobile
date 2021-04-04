@@ -49,6 +49,26 @@ public class MainActivity extends AppCompatActivity {
         profileBtn = findViewById(R.id.profile);
         avatar = findViewById(R.id.avatar);
 
+        btnProfile();
+        loadData();
+        loadTabs();
+
+
+    }
+
+    private void loadTabs() {
+        TabLayout tabLayout = findViewById(R.id.tab_layour);
+        ViewPager viewPager = findViewById(R.id.view_Pager);
+
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+
+        viewPagerAdapter.addFragment(new ChatsFragment(), "Chats");
+        viewPagerAdapter.addFragment(new UsersFragment(), "Users");
+
+        viewPager.setAdapter(viewPagerAdapter);
+        tabLayout.setupWithViewPager(viewPager);
+    }
+    private void loadData() {
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
 
@@ -68,7 +88,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+    }
+    private void btnProfile() {
         profileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,19 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-        TabLayout tabLayout = findViewById(R.id.tab_layour);
-        ViewPager viewPager = findViewById(R.id.view_Pager);
-
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-
-        viewPagerAdapter.addFragment(new ChatsFragment(), "Chats");
-        viewPagerAdapter.addFragment(new UsersFragment(), "Users");
-
-        viewPager.setAdapter(viewPagerAdapter);
-        tabLayout.setupWithViewPager(viewPager);
     }
-
     class ViewPagerAdapter extends FragmentPagerAdapter {
 
         private final ArrayList<Fragment> fragments;
@@ -122,5 +131,8 @@ public class MainActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             return titles.get(position);
         }
+    }
+    private void status(String status) {
+        reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
     }
 }
