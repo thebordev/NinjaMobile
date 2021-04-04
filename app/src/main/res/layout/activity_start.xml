@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F7F7F9"
+    android:gravity="center"
+    tools:context=".StartActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="."
+            android:textColor="@color/blue"
+            android:textSize="64dp"
+            android:fontFamily="@font/roboto_bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ninja"
+            android:textColor="@color/dark_blue"
+            android:textSize="64dp"
+            android:fontFamily="@font/roboto_bold"/>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shadow_test"
+            android:backgroundTint="@android:color/white"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical|start"
+                android:src="@drawable/ic_google"
+                android:layout_marginLeft="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sign in with Google"
+                android:gravity="center_horizontal"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:fontFamily="@font/roboto_bold"/>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shadow_test"
+            android:backgroundTint="@android:color/white"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical|start"
+                android:src="@drawable/ic_vk"
+                android:layout_marginLeft="20dp"
+                app:tint="#2151FF" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sign in with VK"
+                android:gravity="center_horizontal"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:fontFamily="@font/roboto_bold"/>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shadow_test"
+            android:backgroundTint="@android:color/white"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical|start"
+                android:src="@drawable/ic_apple"
+                android:layout_marginLeft="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sign in with Google"
+                android:gravity="center_horizontal"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:fontFamily="@font/roboto_bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:weightSum="3"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/shape_btn"
+                android:backgroundTint="#777777"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="or"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="#777777"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_weight="1"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/shape_btn"
+                android:backgroundTint="#777777"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/shadow_test"
+            android:backgroundTint="@android:color/white"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Continue with email"
+                android:gravity="center_horizontal"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:fontFamily="@font/roboto_bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Еще нет аккаунта?"
+                android:textColor="@android:color/black"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="14sp"
+                android:gravity="center_horizontal"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sign Up here"
+                android:textSize="14sp"
+                android:fontFamily="@font/roboto_bold"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/blue"/>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>
