@@ -125,6 +125,15 @@
                     android:paddingEnd="12dp"
                     android:background="@drawable/edit_text_register"/>
 
+                <TextView
+                    android:id="@+id/forgot_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Забыли пароль?"
+                    android:textColor="@color/dark_blue"
+                    android:gravity="center"
+                    android:layout_margin="10dp"/>
+
 
             </LinearLayout>
 

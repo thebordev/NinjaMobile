@@ -2,14 +2,24 @@ package com.example.ninjaapp.Models;
 
 public class Chat {
     private String sender, receiver, message;
+    private boolean isseen;
 
-    public Chat(String sender, String receiver, String message) {
+    public Chat(String sender, String receiver, String message, boolean isseen) {
         this.sender = sender;
         this.receiver = receiver;
         this.message = message;
+        this.isseen = isseen;
     }
     public Chat() {
 
+    }
+
+    public boolean isIsseen() {
+        return isseen;
+    }
+
+    public void setIsseen(boolean isseen) {
+        this.isseen = isseen;
     }
 
     public String getSender() {

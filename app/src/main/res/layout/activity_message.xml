@@ -3,106 +3,173 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_view"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F7F7F9"
+    android:background="@drawable/bg"
     tools:context=".MessageActivity">
-    
+
+
+
+
     <RelativeLayout
-        android:id="@+id/hat"
         android:layout_width="match_parent"
-        android:layout_margin="10dp"
-        android:background="@drawable/shadow_test"
-        android:elevation="2dp"
-        android:layout_height="60dp">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/btnBack"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/ic_baseline_chevron_left_24"
-            app:tint="@color/dark_blue"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"
-            />
+        <RelativeLayout
+            android:id="@+id/hat"
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:background="@drawable/shadow_test"
+            android:backgroundTint="#27FFFFFF"
+            android:layout_height="60dp">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/user_image"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_centerVertical="true"
-            android:src="@mipmap/ic_launcher"
-            android:layout_marginRight="20dp"
-            android:layout_alignParentEnd="true"/>
+            <ImageView
+                android:elevation="5dp"
+                android:id="@+id/btnBack"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_baseline_chevron_left_24"
+                app:tint="@color/dark_blue"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/user_image"
-            android:layout_marginRight="10dp"
-            android:layout_centerVertical="true"
-            android:orientation="vertical">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/user_image"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_launcher"
+                android:layout_marginRight="20dp"
+                android:layout_alignParentEnd="true"/>
 
-            <TextView
-                android:id="@+id/username"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="thebordev"
-                android:textColor="@color/dark_blue"
-                android:fontFamily="@font/roboto_medium"
-                android:textSize="16sp"/>
+                android:layout_marginRight="10dp"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
 
-            <TextView
+                <TextView
+                    android:id="@+id/username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="thebordev"
+                    android:textColor="@color/blue"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="online"
+                    android:gravity="center"
+                    android:fontFamily="@font/roboto"
+                    android:textColor="#c9c9c9"/>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:paddingTop="75dp"
+            android:paddingBottom="60dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/message"
+        android:layout_marginLeft="10dp"
+        android:gravity="bottom"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/shape_message_text"
+        android:backgroundTint="@color/light_grey"
+        android:layout_above="@+id/linear_layout"
+        android:layout_marginBottom="8dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:id="@+id/et_emoji"
+                android:layout_gravity="bottom"
+                android:paddingLeft="5dp"
+                android:layout_margin="5dp">
+
+                <ImageView
+                    android:id="@+id/emoji"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_outline_emoji_emotions_24"
+                    app:tint="@color/hint_text" />
+            </LinearLayout>
+
+
+            <EditText
+                android:id="@+id/textMessage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="online"
-                android:gravity="right"
+                android:minHeight="35dp"
+                android:background="@drawable/edit_text_message"
+                android:hint="Сообщение"
+                android:textColor="@color/dark_blue"
                 android:fontFamily="@font/roboto"
-                android:textColor="#c9c9c9"/>
+                android:text=""
+                android:paddingLeft="5dp"
+                android:layout_gravity="center_vertical"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:maxLines="5"
+                android:layout_toLeftOf="@+id/sendBtn"
+                android:paddingRight="20dp"
+                android:layout_alignParentBottom="true"
+                android:layout_weight="1"
+                android:textColorHint="@color/hint_text"/>
 
+            <RelativeLayout
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_margin="5dp"
+                android:elevation="2dp"
+                android:id="@+id/sendBtn"
+                android:layout_gravity="center_vertical|bottom"
+                android:background="@drawable/circle_btn">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_send__1_"
+                    app:tint="@android:color/white" />
+
+
+            </RelativeLayout>
         </LinearLayout>
 
 
-    </RelativeLayout>
+    </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/message"
-        android:layout_below="@+id/hat"/>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:id="@+id/message"
-        android:layout_margin="10dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="8dp">
-
-        <EditText
-            android:id="@+id/textMessage"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginRight="16dp"
-            android:elevation="5dp"
-            android:background="@drawable/edit_text_message"
-            android:hint="Enter Message"
-            android:layout_toLeftOf="@+id/photoBtn"
-            android:textColor="@color/dark_blue"
-            android:fontFamily="@font/roboto"
-            android:paddingLeft="20dp"
-            android:textColorHint="#646464"/>
-
-        <ImageView
-            android:id="@+id/sendBtn"
-            android:layout_width="30dp"
-            android:src="@drawable/ic_baseline_send_24"
-            android:layout_height="30dp"
-            android:layout_marginRight="10dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true"
-            app:tint="@color/blue" />
-    </RelativeLayout>
+        android:id="@+id/linear_layout"
+        android:orientation="vertical"/>
 
 </RelativeLayout>

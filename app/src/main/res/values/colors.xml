@@ -10,4 +10,8 @@
 
     <color name="blue">#377DFF</color>
     <color name="dark_blue">#243547</color>
+
+    <color name="light_grey">#e2e2ea</color>
+    <color name="send_msg">#6885dc</color>
+    <color name="hint_text">#bfbfc6</color>
 </resources>

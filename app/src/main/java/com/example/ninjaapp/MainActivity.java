@@ -18,6 +18,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.bumptech.glide.Glide;
 import com.example.ninjaapp.Fragments.ChatsFragment;
 import com.example.ninjaapp.Fragments.UsersFragment;
+import com.example.ninjaapp.Models.Chat;
 import com.example.ninjaapp.Models.User;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -57,16 +58,40 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadTabs() {
-        TabLayout tabLayout = findViewById(R.id.tab_layour);
-        ViewPager viewPager = findViewById(R.id.view_Pager);
+        final TabLayout tabLayout = findViewById(R.id.tab_layour);
+        final ViewPager viewPager = findViewById(R.id.view_Pager);
 
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        reference = FirebaseDatabase.getInstance().getReference("Chats");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+                int unread = 0;
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Chat chat = snapshot.getValue(Chat.class);
+                    if (chat.getReceiver().equals(firebaseUser.getUid()) && !chat.isIsseen()) {
+                        unread++;
+                    }
+                }
 
-        viewPagerAdapter.addFragment(new ChatsFragment(), "Chats");
-        viewPagerAdapter.addFragment(new UsersFragment(), "Users");
+                if (unread == 0) {
+                    viewPagerAdapter.addFragment(new ChatsFragment(), "Chats");
+                } else {
+                    viewPagerAdapter.addFragment(new ChatsFragment(), "("+unread+") Chats");
+                }
 
-        viewPager.setAdapter(viewPagerAdapter);
-        tabLayout.setupWithViewPager(viewPager);
+                viewPagerAdapter.addFragment(new UsersFragment(), "Users");
+
+                viewPager.setAdapter(viewPagerAdapter);
+                tabLayout.setupWithViewPager(viewPager);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
     private void loadData() {
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -79,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
                 if (user.getImageURL().equals("default")) {
                     avatar.setImageResource(R.mipmap.ic_launcher);
                 } else {
-                    Glide.with(MainActivity.this).load(user.getImageURL()).into(avatar);
+                    Glide.with(getApplicationContext()).load(user.getImageURL()).into(avatar);
                 }
             }
 
