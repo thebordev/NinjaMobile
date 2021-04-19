@@ -56,16 +56,20 @@
                     android:id="@+id/username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="thebordev"
+                    android:text=""
+                    android:layout_gravity="center_horizontal"
                     android:textColor="@color/blue"
                     android:fontFamily="@font/roboto_medium"
                     android:textSize="16sp"/>
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:id="@+id/txt_status"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="online"
+                    android:text=""
                     android:gravity="center"
+                    android:maxLines="2"
+                    android:layout_gravity="center_horizontal"
                     android:fontFamily="@font/roboto"
                     android:textColor="#c9c9c9"/>
 

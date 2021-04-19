@@ -1,25 +1,18 @@
 package com.example.ninjaapp.Models;
 
 public class Chat {
-    private String sender, receiver, message;
-    private boolean isseen;
+    private String sender, receiver, message, timeStamp;
+    private boolean isSeen;
 
-    public Chat(String sender, String receiver, String message, boolean isseen) {
+    public Chat(String sender, String receiver, String message, String timeStamp, boolean isSeen) {
         this.sender = sender;
         this.receiver = receiver;
         this.message = message;
-        this.isseen = isseen;
+        this.timeStamp = timeStamp;
+        this.isSeen = isSeen;
     }
     public Chat() {
 
-    }
-
-    public boolean isIsseen() {
-        return isseen;
-    }
-
-    public void setIsseen(boolean isseen) {
-        this.isseen = isseen;
     }
 
     public String getSender() {
@@ -44,5 +37,21 @@ public class Chat {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(String timeStamp) {
+        this.timeStamp = timeStamp;
+    }
+
+    public boolean isSeen() {
+        return isSeen;
+    }
+
+    public void setSeen(boolean seen) {
+        isSeen = seen;
     }
 }

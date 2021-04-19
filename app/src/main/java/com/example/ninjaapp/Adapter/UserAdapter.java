@@ -126,6 +126,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
                     if (chat.getReceiver().equals(firebaseUser.getUid()) && chat.getSender().equals(userid) ||
                     chat.getReceiver().equals(userid) && chat.getSender().equals(firebaseUser.getUid())) {
                         theLastMessage = chat.getMessage();
+                    } else {
+                        theLastMessage = "";
                     }
                 }
                 switch (theLastMessage) {
